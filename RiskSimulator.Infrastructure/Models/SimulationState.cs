@@ -1,3 +1,5 @@
+using RiskSimulator.Infrastructure.Models.Enums;
+
 namespace RiskSimulator.Infrastructure.Models;
 
 public class SimulationState : BaseOperation

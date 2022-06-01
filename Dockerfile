@@ -7,7 +7,7 @@ COPY "RiskSimulator.WebApi/*.csproj" "RiskSimulator.WebApi/"
 COPY "RiskSimulator.Application/*.csproj" "RiskSimulator.Application/"
 COPY "RiskSimulator.Data.InMemory/*.csproj" "RiskSimulator.Data.InMemory/"
 COPY "RiskSimulator.Infrastructure/*.csproj" "RiskSimulator.Infrastructure/"
-COPY "FinancialRiskSimulator.Tests/*.csproj" "FinancialRiskSimulator.Tests/"
+COPY "RiskSimulator.Tests/*.csproj" "RiskSimulator.Tests/"
 RUN dotnet restore
 
 # Copy the project files and build release
@@ -15,10 +15,10 @@ COPY "RiskSimulator.WebApi/*.csproj" "RiskSimulator.WebApi/"
 COPY "RiskSimulator.Application/*.csproj" "RiskSimulator.Application/"
 COPY "RiskSimulator.Data.InMemory/*.csproj" "RiskSimulator.Data.InMemory/"
 COPY "RiskSimulator.Infrastructure/*.csproj" "RiskSimulator.Infrastructure/"
-COPY "FinancialRiskSimulator.Tests/*.csproj" "FinancialRiskSimulator.Tests/"
+COPY "RiskSimulator.Tests/*.csproj" "RiskSimulator.Tests/"
 
 RUN dotnet build "RiskSimulator.WebApi/RiskSimulator.WebApi.csproj"
-RUN dotnet test  "FinancialRiskSimulator.Tests/FinancialRiskSimulator.Tests.csproj"
+RUN dotnet test  "RiskSimulator.Tests/RiskSimulator.Tests.csproj"
 RUN dotnet publish "RiskSimulator.WebApi/RiskSimulator.WebApi.csproj" -o /app/published-app
 
 # Generate runtime image

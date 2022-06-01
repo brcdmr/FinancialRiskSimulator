@@ -1,4 +1,5 @@
 using RiskSimulator.Infrastructure.Models;
+using RiskSimulator.Infrastructure.Models.Enums;
 using RiskSimulator.Infrastructure.Services;
 
 namespace RiskSimulator.Application;
@@ -37,7 +38,7 @@ public class LogicCoordinatorService : ILogicCoordinator
             return new BaseOperation() {IsSuccess = true, OperationResult = key};
         }
 
-        return new BaseOperation() {IsSuccess = false, OperationResult = "Error  ! Job is not started"};
+        return new BaseOperation() {IsSuccess = false, OperationResult = "Error ! Job is not started"};
     }
 
     public async Task<SimulationState> QueryState(string key)
@@ -59,6 +60,7 @@ public class LogicCoordinatorService : ILogicCoordinator
         if (stateResult.State != StateType.Finished) 
             return  new SimulationResult() {IsSuccess = false, OperationResult = "task not finished ..."};
 
+        // It can use for drop unneccessary data after calculation 
         //await _dataService.Drop(key);
         return new SimulationResult() {IsSuccess = true, FinalResults = stateResult.Result.FinalResults};
     }

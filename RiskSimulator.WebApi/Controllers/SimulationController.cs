@@ -46,7 +46,7 @@ public class SimulationController : ControllerBase
         var result =  await _coordinator.FindResult(query.TaskId);
         if (!result.IsSuccess) return new FinalResponse() {Message = result.OperationResult};
 
-        return new FinalResponse() { RiskSimulatorResult = result.FinalResults, Message = "RiskSimulation is completed"}; 
+        return new FinalResponse() { RiskSimulatorResult = result.FinalResults}; 
     }
 
 }

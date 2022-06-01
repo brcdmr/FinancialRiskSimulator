@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using RiskSimulator.Infrastructure.Models;
+using RiskSimulator.Infrastructure.Models.Enums;
 using RiskSimulator.Infrastructure.Services;
 
 namespace RiskSimulator.Application;
@@ -12,7 +13,6 @@ public class JobBag
     public ILogger<JobWorker> LoggerService { get; set; }
 }
 
-// isim değiştirme ?? 
 public class JobWorker : IJobWorker
 {
     private readonly IDataService _dataService;

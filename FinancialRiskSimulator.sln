@@ -12,7 +12,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiskSimulator.Data.InMemory
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiskSimulator.WebApi", "RiskSimulator.WebApi\RiskSimulator.WebApi.csproj", "{5707BC24-DF5D-4B16-8478-06920B7ADFC6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinancialRiskSimulator.Tests", "FinancialRiskSimulator.Tests\FinancialRiskSimulator.Tests.csproj", "{9155E450-D225-4AB1-9C74-0BC7E553A249}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiskSimulator.Tests", "RiskSimulator.Tests\RiskSimulator.Tests.csproj", "{9155E450-D225-4AB1-9C74-0BC7E553A249}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

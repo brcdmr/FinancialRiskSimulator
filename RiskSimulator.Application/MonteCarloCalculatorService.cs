@@ -22,42 +22,33 @@ public class MonteCarloCalculatorService : ICalculator
 
             for (int steps = 1; steps < data.T; steps++)
             {
-                simulatedValues = EvaluateNextValue(simulatedValues, mean, stdDev);
+                simulatedValues = EvaluateNextValue(simulatedValues, mean, stdDev, data.S);
             }
+            
+            // Evaluate %1 and %5 quantiles
+            tempHolder.OverOnePercent = EvaluateQuantile(simulatedValues, itemAsset.p0, 1);
+            tempHolder.OverFivePercent = EvaluateQuantile(simulatedValues, itemAsset.p0, 5);
 
-
-            tempHolder.OverOnePercent = EvaluateOverallWithQuantiles(simulatedValues, itemAsset.p0, 1);
-            tempHolder.OverFivePercent = EvaluateOverallWithQuantiles(simulatedValues, itemAsset.p0, 5);
-            // %1 %5
             result.FinalResults.Add(tempHolder);
         }
 
         return Task.FromResult(result);
     }
 
-    private List<double> EvaluateOverallWithQuantiles(List<double> simulatedValues, double firstValue,
+    private double EvaluateQuantile(List<double> simulatedValues, double firstValue,
         double percentile)
     {
-        List<double> resultoverAllR = new List<double>();
+        List<double> resultOverAllR = new List<double>();
         foreach (var value in simulatedValues)
         {
             double overAllR = value / firstValue - 1;
-            resultoverAllR.Add(overAllR);
+            resultOverAllR.Add(overAllR);
         }
-        var sortedOverall = resultoverAllR.OrderBy(x => x).ToList();
-        var lowerPart = new List<double>();
-        //int limitLength = (int)(simulatedValues.Count * (double)(percentile / 100));
-        //int limitEnd = simulatedValues.Count - limitLength;
         
-        //var lowerPart = sortedOverall.GetRange(0, limitLength);
-        //var upperPart = sortedOverall.GetRange(limitEnd, limitLength);
-        //lowerPart.AddRange(upperPart);
-        
-        //deneme
+        var sortedOverall = resultOverAllR.OrderBy(x => x).ToList();
 
-        
-        var sampleResult = 0.0;
-        if (percentile >= 100.0d) sampleResult = sortedOverall[sortedOverall.Count - 1];
+        var quantile = 0.0;
+        if (percentile >= 100.0d) quantile = sortedOverall[sortedOverall.Count - 1];
 
         double position = (double)(sortedOverall.Count + 1) * percentile / 100.0;
         double leftNumber = 0.0d, rightNumber = 0.0d;
@@ -71,26 +62,22 @@ public class MonteCarloCalculatorService : ICalculator
         }
         else
         {
-            leftNumber = sortedOverall[0]; // first data
-            rightNumber = sortedOverall[1]; // first data
+            leftNumber = sortedOverall[0]; 
+            rightNumber = sortedOverall[1]; 
         }
 
         if (leftNumber == rightNumber)
-            sampleResult= leftNumber;
+            quantile= leftNumber;
         else
         {
             double part = n - System.Math.Floor(n);
-            sampleResult = leftNumber + part * (rightNumber - leftNumber);
+            quantile = leftNumber + part * (rightNumber - leftNumber);
         }
-
-  
-        lowerPart.Add(sampleResult);
-
-        return lowerPart;
+        
+        return quantile;
     }
  
-
-
+    
     private List<double> EvaluateNextValue(List<double> prevValues, double mean, double stdDev, int sampleCount = 1000)
     {
         var samples = DrawRandomNumber(mean, stdDev, sampleCount);
