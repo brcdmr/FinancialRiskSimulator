@@ -11,6 +11,7 @@ public class MonteCarloCalculatorService : ICalculator
     {
         SimulationResult result = new SimulationResult();
 
+        List<double> percentiles = new List<double>() {1, 5};
         foreach (var itemAsset in data.assets)
         {
             List<double> simulatedValues = Enumerable.Repeat(itemAsset.p0, data.S).ToList();
@@ -26,9 +27,12 @@ public class MonteCarloCalculatorService : ICalculator
             }
             
             // Evaluate %1 and %5 quantiles
-            tempHolder.OverOnePercent = EvaluateQuantile(simulatedValues, itemAsset.p0, 1);
-            tempHolder.OverFivePercent = EvaluateQuantile(simulatedValues, itemAsset.p0, 5);
 
+            foreach (var percentile in percentiles)
+            {
+                var tempVal = EvaluateQuantile(simulatedValues, itemAsset.p0, percentile);
+                tempHolder.Quantiles.Add(new Quantiles(){Percentile = percentile, Value = tempVal});
+            }
             result.FinalResults.Add(tempHolder);
         }
 

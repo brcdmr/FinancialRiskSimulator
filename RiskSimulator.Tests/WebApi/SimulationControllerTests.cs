@@ -155,9 +155,9 @@ public class SimulationControllerTests
     public List<AssesResult> GetFakeRiskSimulatorResult()
     {
         var result = new List<AssesResult>();
-        result.Add(new AssesResult(){Name="asset1",OverOnePercent = 0.0, OverFivePercent = 1.1});
-        result.Add(new AssesResult(){Name="asset2",OverOnePercent = 2.0, OverFivePercent = 5.1});
-
+        result.Add(new AssesResult(){Name="asset1", Quantiles = new List<Quantiles>(){new Quantiles(){Percentile = 1.1,Value = 5.1}}});
+        result.Add(new AssesResult(){Name="asset2", Quantiles = new List<Quantiles>(){new Quantiles(){Percentile = 2.1,Value = 8.1}}});
+        
         return result;
     }
 }

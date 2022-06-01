@@ -3,8 +3,13 @@ namespace RiskSimulator.Infrastructure.Models;
 public class AssesResult
 {
     public string Name { get; set; }
-    public double OverOnePercent { get; set; }
-    public double OverFivePercent { get; set; }
+    public List<Quantiles> Quantiles { get; set; } = new List<Quantiles>();
+}
+
+public class Quantiles
+{
+    public double Percentile { get; set; }
+    public double Value { get; set; }
 }
 
 public class SimulationResult : BaseOperation
