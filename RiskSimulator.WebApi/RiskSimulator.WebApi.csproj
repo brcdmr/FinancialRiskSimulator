@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.0.0" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\RiskSimulator.Application\RiskSimulator.Application.csproj" />
+      <ProjectReference Include="..\RiskSimulator.Data.InMemory\RiskSimulator.Data.InMemory.csproj" />
+      <ProjectReference Include="..\RiskSimulator.Infrastructure\RiskSimulator.Infrastructure.csproj" />
+    </ItemGroup>
+
+</Project>

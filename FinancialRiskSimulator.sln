@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1A1525DD-C570-4870-A568-B586174092E2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{1CE71741-BE24-4FEE-8326-D97369CD102E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiskSimulator.Infrastructure", "RiskSimulator.Infrastructure\RiskSimulator.Infrastructure.csproj", "{CC46C2C9-410D-411A-9871-02081056DB8A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiskSimulator.Application", "RiskSimulator.Application\RiskSimulator.Application.csproj", "{E1221C92-0E08-40C8-80C7-96C1C1A6E64E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiskSimulator.Data.InMemory", "RiskSimulator.Data.InMemory\RiskSimulator.Data.InMemory.csproj", "{014FBA30-27AA-4A8E-86F1-42002D71261C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiskSimulator.WebApi", "RiskSimulator.WebApi\RiskSimulator.WebApi.csproj", "{5707BC24-DF5D-4B16-8478-06920B7ADFC6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinancialRiskSimulator.Tests", "FinancialRiskSimulator.Tests\FinancialRiskSimulator.Tests.csproj", "{9155E450-D225-4AB1-9C74-0BC7E553A249}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CC46C2C9-410D-411A-9871-02081056DB8A} = {1A1525DD-C570-4870-A568-B586174092E2}
+		{E1221C92-0E08-40C8-80C7-96C1C1A6E64E} = {1A1525DD-C570-4870-A568-B586174092E2}
+		{014FBA30-27AA-4A8E-86F1-42002D71261C} = {1A1525DD-C570-4870-A568-B586174092E2}
+		{5707BC24-DF5D-4B16-8478-06920B7ADFC6} = {1A1525DD-C570-4870-A568-B586174092E2}
+		{9155E450-D225-4AB1-9C74-0BC7E553A249} = {1CE71741-BE24-4FEE-8326-D97369CD102E}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CC46C2C9-410D-411A-9871-02081056DB8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC46C2C9-410D-411A-9871-02081056DB8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC46C2C9-410D-411A-9871-02081056DB8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC46C2C9-410D-411A-9871-02081056DB8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1221C92-0E08-40C8-80C7-96C1C1A6E64E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1221C92-0E08-40C8-80C7-96C1C1A6E64E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1221C92-0E08-40C8-80C7-96C1C1A6E64E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1221C92-0E08-40C8-80C7-96C1C1A6E64E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{014FBA30-27AA-4A8E-86F1-42002D71261C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{014FBA30-27AA-4A8E-86F1-42002D71261C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{014FBA30-27AA-4A8E-86F1-42002D71261C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{014FBA30-27AA-4A8E-86F1-42002D71261C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5707BC24-DF5D-4B16-8478-06920B7ADFC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5707BC24-DF5D-4B16-8478-06920B7ADFC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5707BC24-DF5D-4B16-8478-06920B7ADFC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5707BC24-DF5D-4B16-8478-06920B7ADFC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9155E450-D225-4AB1-9C74-0BC7E553A249}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9155E450-D225-4AB1-9C74-0BC7E553A249}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9155E450-D225-4AB1-9C74-0BC7E553A249}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9155E450-D225-4AB1-9C74-0BC7E553A249}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
