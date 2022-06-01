@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using RiskSimulator.Infrastructure.Models;
 using RiskSimulator.Infrastructure.Models.Enums;
 using RiskSimulator.Infrastructure.Services;
@@ -28,6 +29,13 @@ public class LogicCoordinatorService : ILogicCoordinator
     {
         // validation eklenecek
 
+        var validationResult = ValidateSimulationRequest(data);
+
+        if (!validationResult)
+        {
+            return new BaseOperation() {IsSuccess = false, OperationResult = "Error! Input is not validated."};
+        }
+            
         string key = Guid.NewGuid().ToString();
         data.Key = key;
 
@@ -39,6 +47,12 @@ public class LogicCoordinatorService : ILogicCoordinator
         }
 
         return new BaseOperation() {IsSuccess = false, OperationResult = "Error! Simulation is not started, please try again."};
+    }
+
+    private bool ValidateSimulationRequest(SimulationRequest data)
+    {
+        // incomplte validation function
+        return true;
     }
 
     public async Task<SimulationState> QueryState(string key)
