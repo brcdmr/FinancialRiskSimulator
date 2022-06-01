@@ -38,7 +38,7 @@ public class LogicCoordinatorService : ILogicCoordinator
             return new BaseOperation() {IsSuccess = true, OperationResult = key};
         }
 
-        return new BaseOperation() {IsSuccess = false, OperationResult = "Error ! Job is not started"};
+        return new BaseOperation() {IsSuccess = false, OperationResult = "Error! Simulation is not started, please try again."};
     }
 
     public async Task<SimulationState> QueryState(string key)
@@ -46,7 +46,7 @@ public class LogicCoordinatorService : ILogicCoordinator
         var stateResult = await _dataService.Get<StateBag>(key);
 
         return stateResult == null
-            ? new SimulationState() {IsSuccess = false, OperationResult = "no such key found ..."}
+            ? new SimulationState() {IsSuccess = false, OperationResult = "Error! No such key found ..."}
             : new SimulationState() {IsSuccess = true, State = stateResult.State};
     }
 
@@ -55,12 +55,12 @@ public class LogicCoordinatorService : ILogicCoordinator
         var stateResult = await _dataService.Get<StateBag>(key);
 
         if (stateResult == null) 
-            return  new SimulationResult() {IsSuccess = false, OperationResult = "no such key found ..."};
+            return  new SimulationResult() {IsSuccess = false, OperationResult = "Error! No such key found ..."};
              
         if (stateResult.State != StateType.Finished) 
-            return  new SimulationResult() {IsSuccess = false, OperationResult = "task not finished ..."};
+            return  new SimulationResult() {IsSuccess = false, OperationResult = "Simulation is not completed ..."};
 
-        // It can use for drop unneccessary data after calculation 
+        // It can be used to drop final result data after checking results 
         //await _dataService.Drop(key);
         return new SimulationResult() {IsSuccess = true, FinalResults = stateResult.Result.FinalResults};
     }
